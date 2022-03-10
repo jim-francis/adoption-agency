@@ -1,6 +1,6 @@
 from flask import Flask, request, render_template, redirect, flash, session
 from flask_debugtoolbar import DebugToolbarExtension
-from models import connect_db
+from models import db, connect_db, Pet
 
 app = Flask(__name__)
 
@@ -15,4 +15,5 @@ connect_db(app)
 
 @app.route('/')
 def show_homepage():
-    return render_template('home.html')
+    pets = Pet.query.all()
+    return render_template('home.html', pets=pets)
