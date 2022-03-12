@@ -8,8 +8,8 @@
     <div class="row align-items-start">
         {%for pet in pets%}
         <div class="col">
-            <img src="{{pet.photo_url}}" alt="">
-            <p>{{pet.name}}
+            <a href="/{{pet.id}}"><img src="{{pet.photo_url}}" alt="">
+            <p>{{pet.name}}</a>
             {%if pet.available%} <b>is available!</b> {%endif%}
             </p>
         </div>
